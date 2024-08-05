@@ -1,5 +1,7 @@
+<script></script>
+
 <template>
-  <div class="flex min-h-screen justify-center items-center">
-    This is a test
+  <div>
+    <NuxtLayout> <Nav /> <NuxtPage /> <Footer /> </NuxtLayout>
   </div>
 </template>
