@@ -827,9 +827,15 @@ const errorHandler = (async function errorhandler(error, event) {
   return send(event, html);
 });
 
+const _lazy_aMbPwj = () => Promise.resolve().then(function () { return hello$3; });
+const _lazy_OsovAr = () => Promise.resolve().then(function () { return products$1; });
+const _lazy_9RNpp3 = () => Promise.resolve().then(function () { return hello$1; });
 const _lazy_9lQXXn = () => Promise.resolve().then(function () { return renderer$1; });
 
 const handlers = [
+  { route: '/api/hello', handler: _lazy_aMbPwj, lazy: true, middleware: false, method: undefined },
+  { route: '/api/products', handler: _lazy_OsovAr, lazy: true, middleware: false, method: undefined },
+  { route: '/hello', handler: _lazy_9RNpp3, lazy: true, middleware: false, method: undefined },
   { route: '/__nuxt_error', handler: _lazy_9lQXXn, lazy: true, middleware: false, method: undefined },
   { route: '/**', handler: _lazy_9lQXXn, lazy: true, middleware: false, method: undefined }
 ];
@@ -1024,6 +1030,64 @@ const template$1 = (messages) => {
 const errorDev = /*#__PURE__*/Object.freeze({
   __proto__: null,
   template: template$1
+});
+
+const hello$2 = defineEventHandler((event) => {
+  console.log(event);
+  return {
+    api: "works"
+  };
+});
+
+const hello$3 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  default: hello$2
+});
+
+var name = "Product";
+var properties = {
+	id: {
+		type: "number",
+		description: "Product identifier",
+		required: true
+	},
+	name: {
+		description: "Name of the product",
+		type: "string",
+		required: true
+	},
+	price: {
+		type: "number",
+		minimum: 0,
+		required: true
+	},
+	tags: {
+		type: "array",
+		items: {
+			type: "string"
+		}
+	}
+};
+const data = {
+	name: name,
+	properties: properties
+};
+
+const products = defineEventHandler(() => {
+  console.log(data);
+  return data;
+});
+
+const products$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  default: products
+});
+
+const hello = defineEventHandler(() => "Hello from routes");
+
+const hello$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  default: hello
 });
 
 const Vue3 = version.startsWith("3");

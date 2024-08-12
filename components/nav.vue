@@ -1,5 +1,5 @@
 <template>
-  <nav class="p-2 bg-gray-200">
+  <nav class="p-2 bg-gray-800">
     <ul class="flex flex-row space-x-4 font-bold">
       <li><NuxtLink to="/">Home</NuxtLink></li>
       <ul>
